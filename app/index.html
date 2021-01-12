@@ -15,6 +15,21 @@
         <h1>Maze textures</h1>
         <form>
             <button id="new-texture" type="button" class="btn btn-primary btn-lg">New texture</button>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Maze</span>
+                </div>
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Columns</span>
+                </div>
+                <input type="number" class="form-control" id="maze-columns" min="1" value="50">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rows</span>
+                </div>
+                <input type="number" class="form-control" id="maze-rows" min="1" value="50">
+            </div>
         </form>
         <canvas id="maze-texture"></canvas>
     </main>
