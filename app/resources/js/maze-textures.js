@@ -8,7 +8,9 @@ function engine() {
 	let texture = canvas.getContext("2d");
 
     let mazeColumns = getMazeDimension("maze-columns");
-    let mazeRows = getMazeDimension("maze-rows");
+	let mazeRows = getMazeDimension("maze-rows");
+	let path = getInputNumber("maze-path");
+    let wall = getInputNumber("maze-wall");
 }
 
 function getInputNumber(id) {
