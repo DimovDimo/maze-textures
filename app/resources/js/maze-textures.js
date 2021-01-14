@@ -10,7 +10,10 @@ function engine() {
     let mazeColumns = getMazeDimension("maze-columns");
 	let mazeRows = getMazeDimension("maze-rows");
 	let path = getInputNumber("maze-path");
-    let wall = getInputNumber("maze-wall");
+	let wall = getInputNumber("maze-wall");
+	
+	let dimension = getDimension(wall, path);
+	let displacement = getDisplacement(dimension);
 }
 
 function getInputNumber(id) {
@@ -19,4 +22,12 @@ function getInputNumber(id) {
 
 function getMazeDimension(id) {
 	return getInputNumber(id) + 1;
+}
+
+function getDimension(wall, path) {
+	return wall + path;
+}
+
+function getDisplacement(dimension) {
+	return dimension / 1.5;
 }
