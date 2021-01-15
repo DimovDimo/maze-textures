@@ -7,13 +7,14 @@ function engine() {
 	let canvas = document.getElementById("maze-texture");
 	let texture = canvas.getContext("2d");
 
-    let mazeColumns = getMazeDimension("maze-columns");
-	let mazeRows = getMazeDimension("maze-rows");
+    let rows = getMazeDimension("maze-rows");
+	let columns = getMazeDimension("maze-columns");
+    let wall = getInputNumber("maze-wall");
 	let path = getInputNumber("maze-path");
-	let wall = getInputNumber("maze-wall");
-	
+
 	let dimension = getDimension(wall, path);
 	let displacement = getDisplacement(dimension);
+	let stance = getStance(rows, columns);
 }
 
 function getInputNumber(id) {
@@ -30,4 +31,12 @@ function getDimension(wall, path) {
 
 function getDisplacement(dimension) {
 	return dimension / 1.5;
+}
+
+function getStance(rows, columns) {
+	return getRandomSequence(rows) * getRandomSequence(columns);
+}
+
+function getRandomSequence(sequence) {
+	return Math.floor(sequence * Math.random());
 }
