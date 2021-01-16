@@ -7,8 +7,8 @@ function engine() {
 	let canvas = document.getElementById("maze-texture");
 	let texture = canvas.getContext("2d");
 
-    let rows = getMazeDimension("maze-rows");
-	let columns = getMazeDimension("maze-columns");
+    let rows = getInputNumber("maze-rows");
+	let columns = getInputNumber("maze-columns");
     let wall = getInputNumber("maze-wall");
 	let path = getInputNumber("maze-path");
 
@@ -19,10 +19,6 @@ function engine() {
 
 function getInputNumber(id) {
 	return Number(document.getElementById(id).value);
-}
-
-function getMazeDimension(id) {
-	return getInputNumber(id) + 1;
 }
 
 function getDimension(wall, path) {
