@@ -15,6 +15,10 @@ function engine() {
 	let dimension = getDimension(wall, path);
 	let displacement = getDisplacement(dimension);
 	let stance = getStance(rows, columns);
+	let limit = getLimit(rows, columns);
+	
+	let direction = [];
+	let maze = [];
 }
 
 function getInputNumber(id) {
@@ -35,4 +39,8 @@ function getStance(rows, columns) {
 
 function getRandomSequence(sequence) {
 	return Math.floor(sequence * Math.random());
+}
+
+function getLimit(rows, columns) {
+	return rows * columns;
 }
