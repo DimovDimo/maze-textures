@@ -19,6 +19,9 @@ function engine() {
 	
 	let direction = [];
 	let maze = [];
+	
+	canvas.width = getSize(columns, dimension, displacement);
+	canvas.height = getSize(rows, dimension, displacement);
 }
 
 function getInputNumber(id) {
@@ -43,4 +46,12 @@ function getRandomSequence(sequence) {
 
 function getLimit(rows, columns) {
 	return rows * columns;
+}
+
+function getSize(length, dimension, displacement) {
+	let distance = length - 1;
+	let translocation = 2 * displacement;
+	let magnitude = distance * dimension;
+	
+	return translocation + magnitude;
 }
