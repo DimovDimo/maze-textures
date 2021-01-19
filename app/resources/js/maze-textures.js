@@ -22,6 +22,9 @@ function engine() {
 	
 	canvas.width = getSize(columns, dimension, displacement);
 	canvas.height = getSize(rows, dimension, displacement);
+
+	texture.lineWidth = path;
+	texture.strokeStyle = getColor("maze-path-color");
 }
 
 function getInputNumber(id) {
@@ -54,4 +57,8 @@ function getSize(length, dimension, displacement) {
 	let magnitude = distance * dimension;
 	
 	return translocation + magnitude;
+}
+
+function getColor(id) {
+	return document.getElementById(id).value;
 }
