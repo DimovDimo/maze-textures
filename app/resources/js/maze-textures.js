@@ -24,11 +24,12 @@ function engine() {
 	canvas.height = getSize(rows, dimension, displacement);
 
 	texture.lineWidth = path;
-	texture.strokeStyle = getColor("maze-path-color");
+	texture.lineCap = getValue("line-cap");
+	texture.strokeStyle = getValue("maze-path-color");	
 }
 
 function getInputNumber(id) {
-	return Number(document.getElementById(id).value);
+	return Number(getValue(id));
 }
 
 function getDimension(wall, path) {
@@ -59,6 +60,6 @@ function getSize(length, dimension, displacement) {
 	return translocation + magnitude;
 }
 
-function getColor(id) {
+function getValue(id) {
 	return document.getElementById(id).value;
 }
