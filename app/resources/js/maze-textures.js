@@ -25,7 +25,11 @@ function engine() {
 
 	texture.lineWidth = path;
 	texture.lineCap = getValue("line-cap");
-	texture.strokeStyle = getValue("maze-path-color");	
+	texture.strokeStyle = getValue("maze-path-color");
+
+	while(isEndMaze(stance)){
+		//TODO
+	}
 }
 
 function getInputNumber(id) {
@@ -62,4 +66,8 @@ function getSize(length, dimension, displacement) {
 
 function getValue(id) {
 	return document.getElementById(id).value;
+}
+
+function isEndMaze(stance) {
+	return stance !== undefined;
 }
