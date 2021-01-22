@@ -27,8 +27,8 @@ function engine() {
 	texture.lineCap = getValue("line-cap");
 	texture.strokeStyle = getValue("maze-path-color");
 
-	while(isEndMaze(stance)){
-		//TODO
+	while(isEndMaze(stance)) {
+		setDirection(direction, stance);
 	}
 }
 
@@ -70,4 +70,8 @@ function getValue(id) {
 
 function isEndMaze(stance) {
 	return stance !== undefined;
+}
+
+function setDirection(direction, stance) {
+	direction[stance] = true;;
 }
