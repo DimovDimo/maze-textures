@@ -29,6 +29,7 @@ function engine() {
 
 	while(isEndMaze(stance)) {
 		setDirection(direction, stance);
+		let range = getRange(stance, columns);
 	}
 }
 
@@ -73,5 +74,14 @@ function isEndMaze(stance) {
 }
 
 function setDirection(direction, stance) {
-	direction[stance] = true;;
+	direction[stance] = true;
+}
+
+function getRange(stance, columns) {
+	let topRange = stance - columns;
+	let rightRange = stance + 1;
+	let bottomRange = stance + columns;
+	let leftRange = stance - 1;
+	
+	return [topRange, rightRange, bottomRange, leftRange];
 }
