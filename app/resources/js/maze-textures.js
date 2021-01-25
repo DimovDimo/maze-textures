@@ -89,3 +89,7 @@ function getRange(stance, columns) {
 function isInMaze(item, range, limit) {
 	return range[item] >= 0 && range[item] < limit; // range[item] <= limit .... exit
 }
+
+function isDirection(item, range, direction) {
+	return direction[range[item]] !== true;
+}
