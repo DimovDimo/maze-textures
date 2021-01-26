@@ -93,3 +93,7 @@ function isInMaze(item, range, limit) {
 function isDirection(item, range, direction) {
 	return direction[range[item]] !== true;
 }
+
+function isEven(item) {
+	return item % 2 === 0;
+}
