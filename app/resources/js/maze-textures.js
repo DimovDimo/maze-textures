@@ -97,3 +97,7 @@ function isDirection(item, range, direction) {
 function isEven(item) {
 	return item % 2 === 0;
 }
+
+function isPosition(item, range, stance, rows, columns) {
+	return Math.floor(stance / rows) === Math.floor(range[item] / columns);
+}
