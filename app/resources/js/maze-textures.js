@@ -101,3 +101,7 @@ function isEven(item) {
 function isPosition(item, range, stance, rows, columns) {
 	return Math.floor(stance / rows) === Math.floor(range[item] / columns);
 }
+
+function isMove(item, range, stance, rows, columns) {
+	return isPosition(item, range, stance, rows, columns) || isEven(item);
+}
