@@ -105,3 +105,9 @@ function isPosition(item, range, stance, rows, columns) {
 function isMove(item, range, stance, rows, columns) {
 	return isPosition(item, range, stance, rows, columns) || isEven(item);
 }
+
+function isNewItem(item, range, stance, rows, columns, limit, direction) {
+	return isMove(item, range, stance, rows, columns) &&
+	       isDirection(item, range, direction) &&
+	       isInMaze(item, range, limit);
+}
