@@ -30,6 +30,13 @@ function engine() {
 	while(isEndMaze(stance)) {
 		setDirection(direction, stance);
 		let range = getRange(stance, columns);
+		let blank = [];
+	
+		for(item in range){
+			if(isNewItem(item, range, stance, rows, columns, limit, direction)){
+				setItemInBlank(item, range, blank);
+			}
+		}
 	}
 }
 
@@ -110,4 +117,8 @@ function isNewItem(item, range, stance, rows, columns, limit, direction) {
 	return isMove(item, range, stance, rows, columns) &&
 	       isDirection(item, range, direction) &&
 	       isInMaze(item, range, limit);
+}
+
+function setItemInBlank(item, range, blank) {
+	blank.push(range[item]);
 }
