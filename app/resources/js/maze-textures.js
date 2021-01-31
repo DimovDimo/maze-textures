@@ -122,3 +122,7 @@ function isNewItem(item, range, stance, rows, columns, limit, direction) {
 function setItemInBlank(item, range, blank) {
 	blank.push(range[item]);
 }
+
+function isEnoughLength(blank) {
+	return blank.length > 0;
+}
