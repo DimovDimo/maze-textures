@@ -126,3 +126,13 @@ function setItemInBlank(item, range, blank) {
 function isEnoughLength(blank) {
 	return blank.length > 0;
 }
+
+function getRandomItem(blank) {
+	let index = getRandomIndex(blank);
+	
+	return blank[index];
+}
+
+function getRandomIndex(blank) {
+	return Math.floor(blank.length * Math.random());
+}
