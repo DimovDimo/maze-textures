@@ -136,3 +136,7 @@ function getRandomItem(blank) {
 function getRandomIndex(blank) {
 	return Math.floor(blank.length * Math.random());
 }
+
+function horizontal(point, displacement, dimension, columns) {
+	return displacement + dimension * (point % columns);
+}
