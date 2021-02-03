@@ -32,8 +32,8 @@ function engine() {
 		let range = getRange(stance, columns);
 		let blank = [];
 	
-		for(item in range){
-			if(isNewItem(item, range, stance, rows, columns, limit, direction)){
+		for(item in range) {
+			if(isNewItem(item, range, stance, rows, columns, limit, direction)) {
 				setItemInBlank(item, range, blank);
 			}
 		}
@@ -139,4 +139,8 @@ function getRandomIndex(blank) {
 
 function horizontal(point, displacement, dimension, columns) {
 	return displacement + dimension * (point % columns);
+}
+
+function vertical(point, displacement, dimension, columns) {
+	return displacement + dimension * Math.floor(point / columns);
 }
