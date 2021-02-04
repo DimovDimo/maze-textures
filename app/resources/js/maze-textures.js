@@ -137,10 +137,12 @@ function getRandomIndex(blank) {
 	return Math.floor(blank.length * Math.random());
 }
 
-function horizontal(point, displacement, dimension, columns) {
-	return displacement + dimension * (point % columns);
-}
-
-function vertical(point, displacement, dimension, columns) {
-	return displacement + dimension * Math.floor(point / columns);
+function coordinate(point, displacement, dimension, columns, isHorizontal) {
+	let columnsRatio = Math.floor(point / columns);
+	
+	if(isHorizontal) {
+		columnsRatio = point % columns;
+	}
+	
+	return displacement + dimension * columnsRatio;
 }
