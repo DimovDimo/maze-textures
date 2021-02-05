@@ -37,6 +37,11 @@ function engine() {
 				setItemInBlank(item, range, blank);
 			}
 		}
+
+		if(isEnoughLength(blank)) {
+			let position = getRandomItem(blank);
+			drawMaze(texture, stance, displacement, dimension, columns, position);
+		}
 	}
 }
 
@@ -137,7 +142,7 @@ function getRandomIndex(blank) {
 	return Math.floor(blank.length * Math.random());
 }
 
-function coordinate(point, displacement, dimension, columns, isHorizontal) {
+function getCoordinate(point, displacement, dimension, columns, isHorizontal) {
 	let columnsRatio = Math.floor(point / columns);
 	
 	if(isHorizontal) {
@@ -145,4 +150,20 @@ function coordinate(point, displacement, dimension, columns, isHorizontal) {
 	}
 	
 	return displacement + dimension * columnsRatio;
+}
+
+function drawMaze(texture, stance, displacement, dimension, columns, position) {
+	texture.beginPath();
+
+	texture.moveTo(
+		getCoordinate(stance, displacement, dimension, columns, true),
+		getCoordinate(stance, displacement, dimension, columns, false)
+	);
+
+	texture.lineTo(
+		getCoordinate(position, displacement, dimension, columns, true),
+		getCoordinate(position, displacement, dimension, columns, false)
+	);
+	
+	texture.stroke();
 }
