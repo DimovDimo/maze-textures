@@ -7,19 +7,19 @@ function engine() {
 	let canvas = document.getElementById("maze-texture");
 	let texture = canvas.getContext("2d");
 
-    let rows = getInputNumber("maze-rows");
+	let rows = getInputNumber("maze-rows");
 	let columns = getInputNumber("maze-columns");
-    let wall = getInputNumber("maze-wall");
+	let wall = getInputNumber("maze-wall");
 	let path = getInputNumber("maze-path");
 
 	let dimension = getDimension(wall, path);
 	let displacement = getDisplacement(dimension);
 	let stance = getStance(rows, columns);
 	let limit = getLimit(rows, columns);
-	
+
 	let direction = [];
 	let maze = [];
-	
+
 	canvas.width = getSize(columns, dimension, displacement);
 	canvas.height = getSize(rows, dimension, displacement);
 
@@ -27,20 +27,24 @@ function engine() {
 	texture.lineCap = getValue("line-cap");
 	texture.strokeStyle = getValue("maze-path-color");
 
-	while(isEndMaze(stance)) {
+	while (isEndMaze(stance)) {
 		setDirection(direction, stance);
 		let range = getRange(stance, columns);
 		let blank = [];
-	
-		for(item in range) {
-			if(isNewItem(item, range, stance, rows, columns, limit, direction)) {
+
+		for (item in range) {
+			if (isNewItem(item, range, stance, rows, columns, limit, direction)) {
 				setItemInBlank(item, range, blank);
 			}
 		}
 
-		if(isEnoughLength(blank)) {
+		if (isEnoughLength(blank)) {
 			let position = getRandomItem(blank);
 			drawMaze(texture, stance, displacement, dimension, columns, position);
+			stance = position;
+			maze.push(stance);
+		} else {
+			stance = maze.pop();
 		}
 	}
 }
@@ -73,7 +77,7 @@ function getSize(length, dimension, displacement) {
 	let distance = length - 1;
 	let translocation = 2 * displacement;
 	let magnitude = distance * dimension;
-	
+
 	return translocation + magnitude;
 }
 
@@ -94,7 +98,7 @@ function getRange(stance, columns) {
 	let rightRange = stance + 1;
 	let bottomRange = stance + columns;
 	let leftRange = stance - 1;
-	
+
 	return [topRange, rightRange, bottomRange, leftRange];
 }
 
@@ -120,8 +124,8 @@ function isMove(item, range, stance, rows, columns) {
 
 function isNewItem(item, range, stance, rows, columns, limit, direction) {
 	return isMove(item, range, stance, rows, columns) &&
-	       isDirection(item, range, direction) &&
-	       isInMaze(item, range, limit);
+		isDirection(item, range, direction) &&
+		isInMaze(item, range, limit);
 }
 
 function setItemInBlank(item, range, blank) {
@@ -134,7 +138,7 @@ function isEnoughLength(blank) {
 
 function getRandomItem(blank) {
 	let index = getRandomIndex(blank);
-	
+
 	return blank[index];
 }
 
@@ -144,11 +148,11 @@ function getRandomIndex(blank) {
 
 function getCoordinate(point, displacement, dimension, columns, isHorizontal) {
 	let columnsRatio = Math.floor(point / columns);
-	
-	if(isHorizontal) {
+
+	if (isHorizontal) {
 		columnsRatio = point % columns;
 	}
-	
+
 	return displacement + dimension * columnsRatio;
 }
 
@@ -164,6 +168,6 @@ function drawMaze(texture, stance, displacement, dimension, columns, position) {
 		getCoordinate(position, displacement, dimension, columns, true),
 		getCoordinate(position, displacement, dimension, columns, false)
 	);
-	
+
 	texture.stroke();
 }
