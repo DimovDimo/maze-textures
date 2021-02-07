@@ -32,11 +32,7 @@ function engine() {
 		let range = getRange(stance, columns);
 		let blank = [];
 
-		for (item in range) {
-			if (isNewItem(item, range, stance, rows, columns, limit, direction)) {
-				setItemInBlank(item, range, blank);
-			}
-		}
+		setItems(range, stance, rows, columns, limit, direction, blank);
 
 		if (isEnoughLength(blank)) {
 			let position = getRandomItem(blank);
@@ -45,6 +41,14 @@ function engine() {
 			maze.push(stance);
 		} else {
 			stance = maze.pop();
+		}
+	}
+}
+
+function setItems(range, stance, rows, columns, limit, direction, blank) {
+	for (item in range) {
+		if (isNewItem(item, range, stance, rows, columns, limit, direction)) {
+			setItemInBlank(item, range, blank);
 		}
 	}
 }
