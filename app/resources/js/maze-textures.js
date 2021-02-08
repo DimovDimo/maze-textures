@@ -37,12 +37,18 @@ function engine() {
 		if (isEnoughLength(blank)) {
 			let position = getRandomItem(blank);
 			drawMaze(texture, stance, displacement, dimension, columns, position);
-			stance = position;
-			maze.push(stance);
+			stance = setNewPosition(stance, position, maze);
 		} else {
 			stance = maze.pop();
 		}
 	}
+}
+
+function setNewPosition(stance, position, maze) {
+	stance = position;
+	maze.push(stance);
+
+	return stance;
 }
 
 function setItems(range, stance, rows, columns, limit, direction, blank) {
@@ -62,7 +68,7 @@ function getDimension(wall, path) {
 }
 
 function getDisplacement(dimension) {
-	return dimension / 1.5;
+	return dimension / getValue("displacement");
 }
 
 function getStance(rows, columns) {
