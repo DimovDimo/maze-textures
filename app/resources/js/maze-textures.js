@@ -1,3 +1,6 @@
+const distanceConst = 1;
+const translocationConst = 2;
+
 let newTexture = document.getElementById("new-texture");
 newTexture.addEventListener("click", engine);
 
@@ -84,8 +87,8 @@ function getLimit(rows, columns) {
 }
 
 function getSize(length, dimension, displacement) {
-	let distance = length - 1;
-	let translocation = 2 * displacement;
+	let distance = length - distanceConst;
+	let translocation = displacement * translocationConst;
 	let magnitude = distance * dimension;
 
 	return translocation + magnitude;
@@ -105,9 +108,9 @@ function setDirection(direction, stance) {
 
 function getRange(stance, columns) {
 	let topRange = stance - columns;
-	let rightRange = stance + 1;
+	let rightRange = stance + distanceConst;
 	let bottomRange = stance + columns;
-	let leftRange = stance - 1;
+	let leftRange = stance - distanceConst;
 
 	return [topRange, rightRange, bottomRange, leftRange];
 }
