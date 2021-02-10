@@ -116,7 +116,7 @@ function getRange(stance, columns) {
 }
 
 function isInMaze(item, range, limit) {
-	return range[item] >= 0 && range[item] < limit; // range[item] <= limit .... exit
+	return range[item] >= 0 && range[item] < limit;
 }
 
 function isDirection(item, range, direction) {
@@ -146,7 +146,7 @@ function setItemInBlank(item, range, blank) {
 }
 
 function isEnoughLength(blank) {
-	return blank.length > 0;
+	return blank.length > getValue("blank");
 }
 
 function getRandomItem(blank) {
