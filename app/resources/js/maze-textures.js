@@ -23,12 +23,8 @@ function engine() {
 	let direction = [];
 	let maze = [];
 
-	canvas.width = getSize(columns, dimension, displacement);
-	canvas.height = getSize(rows, dimension, displacement);
-
-	texture.lineWidth = path;
-	texture.lineCap = getValue("line-cap");
-	texture.strokeStyle = getValue("maze-path-color");
+	setSize(canvas, columns, dimension, displacement, rows);
+	setStyle(texture, path);
 
 	while (isEndMaze(stance)) {
 		setDirection(direction, stance);
@@ -45,6 +41,17 @@ function engine() {
 			stance = maze.pop();
 		}
 	}
+}
+
+function setStyle(texture, path) {
+	texture.lineWidth = path;
+	texture.lineCap = getValue("line-cap");
+	texture.strokeStyle = getValue("maze-path-color");
+}
+
+function setSize(canvas, columns, dimension, displacement, rows) {
+	canvas.width = getSize(columns, dimension, displacement);
+	canvas.height = getSize(rows, dimension, displacement);
 }
 
 function setNewPosition(stance, position, maze) {
