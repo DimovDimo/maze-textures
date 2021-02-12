@@ -26,6 +26,10 @@ function engine() {
 	setSize(canvas, columns, dimension, displacement, rows);
 	setStyle(texture, path);
 
+	generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze);
+}
+
+function generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze) {
 	while (isEndMaze(stance)) {
 		setDirection(direction, stance);
 		let range = getRange(stance, columns);
@@ -78,7 +82,7 @@ function getDimension(wall, path) {
 }
 
 function getDisplacement(dimension) {
-	return dimension / getValue("displacement");
+	return dimension / getInputNumber("displacement");
 }
 
 function getStance(rows, columns) {
@@ -153,7 +157,7 @@ function setItemInBlank(item, range, blank) {
 }
 
 function isEnoughLength(blank) {
-	return blank.length > getValue("blank");
+	return blank.length > getInputNumber("blank");
 }
 
 function getRandomItem(blank) {
