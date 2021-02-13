@@ -31,20 +31,29 @@ function engine() {
 
 function generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze) {
 	while (isEndMaze(stance)) {
-		setDirection(direction, stance);
-		let range = getRange(stance, columns);
 		let blank = [];
-
+		let range = getRange(stance, columns);
+		setDirection(direction, stance);
 		setItems(range, stance, rows, columns, limit, direction, blank);
-
-		if (isEnoughLength(blank)) {
-			let position = getRandomItem(blank);
-			drawMaze(texture, stance, displacement, dimension, columns, position);
-			stance = setNewPosition(stance, position, maze);
-		} else {
-			stance = maze.pop();
-		}
+		stance = towStance(blank, stance, texture, displacement, dimension, columns, maze);
 	}
+}
+
+function towStance(blank, stance, texture, displacement, dimension, columns, maze) {
+	if (isEnoughLength(blank)) {
+		stance = setWaypoint(blank, texture, stance, displacement, dimension, columns, maze);
+	} else {
+		stance = maze.pop();
+	}
+
+	return stance;
+}
+
+function setWaypoint(blank, texture, stance, displacement, dimension, columns, maze) {
+	let position = getRandomItem(blank);
+	drawMaze(texture, stance, displacement, dimension, columns, position);
+
+	return setNewPosition(stance, position, maze);
 }
 
 function setStyle(texture, path) {
