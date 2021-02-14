@@ -10,15 +10,8 @@ function engine() {
 	let canvas = document.getElementById("maze-texture");
 	let texture = canvas.getContext("2d");
 
-	let rows = getInputNumber("maze-rows");
-	let columns = getInputNumber("maze-columns");
-	let wall = getInputNumber("maze-wall");
-	let path = getInputNumber("maze-path");
-
-	let dimension = getDimension(wall, path);
-	let displacement = getDisplacement(dimension);
-	let stance = getStance(rows, columns);
-	let limit = getLimit(rows, columns);
+	let { wall, path, rows, columns } = getSettings();
+	let { dimension, displacement, stance, limit } = setConditions(wall, path, rows, columns);
 
 	let direction = [];
 	let maze = [];
@@ -27,6 +20,24 @@ function engine() {
 	setStyle(texture, path);
 
 	generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze);
+}
+
+function setConditions(wall, path, rows, columns) {
+	let dimension = getDimension(wall, path);
+	let displacement = getDisplacement(dimension);
+	let stance = getStance(rows, columns);
+	let limit = getLimit(rows, columns);
+
+	return { dimension, displacement, stance, limit };
+}
+
+function getSettings() {
+	let rows = getInputNumber("maze-rows");
+	let columns = getInputNumber("maze-columns");
+	let wall = getInputNumber("maze-wall");
+	let path = getInputNumber("maze-path");
+
+	return { wall, path, rows, columns };
 }
 
 function generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze) {
