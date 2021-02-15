@@ -7,22 +7,23 @@ newTexture.addEventListener("click", engine);
 engine();
 
 function engine() {
-	let canvas = document.getElementById("maze-texture");
-	let texture = canvas.getContext("2d");
-
+	let { canvas, texture } = getCanvas();
 	let { wall, path, rows, columns } = getSettings();
-	let { dimension, displacement, stance, limit } = setConditions(wall, path, rows, columns);
-
-	let direction = [];
-	let maze = [];
+	let { dimension, displacement, stance, limit } = getConditions(wall, path, rows, columns);
 
 	setSize(canvas, columns, dimension, displacement, rows);
 	setStyle(texture, path);
-
-	generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze);
+	generateMaze(stance, columns, rows, limit, texture, displacement, dimension);
 }
 
-function setConditions(wall, path, rows, columns) {
+function getCanvas() {
+	let canvas = document.getElementById("maze-texture");
+	let texture = canvas.getContext("2d");
+
+	return { canvas, texture };
+}
+
+function getConditions(wall, path, rows, columns) {
 	let dimension = getDimension(wall, path);
 	let displacement = getDisplacement(dimension);
 	let stance = getStance(rows, columns);
@@ -40,7 +41,9 @@ function getSettings() {
 	return { wall, path, rows, columns };
 }
 
-function generateMaze(stance, direction, columns, rows, limit, texture, displacement, dimension, maze) {
+function generateMaze(stance, columns, rows, limit, texture, displacement, dimension) {
+	let direction = [];
+	let maze = [];	
 	while (isEndMaze(stance)) {
 		let blank = [];
 		let range = getRange(stance, columns);
@@ -168,8 +171,8 @@ function isMove(item, range, stance, rows, columns) {
 
 function isNewItem(item, range, stance, rows, columns, limit, direction) {
 	return isMove(item, range, stance, rows, columns) &&
-		isDirection(item, range, direction) &&
-		isInMaze(item, range, limit);
+		   isDirection(item, range, direction) &&
+		   isInMaze(item, range, limit);
 }
 
 function setItemInBlank(item, range, blank) {
