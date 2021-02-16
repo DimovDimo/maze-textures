@@ -5,3 +5,7 @@ body {
 canvas {
     background: rgb(0, 0, 0);
 }
+
+#maze-path-color {
+    height: auto;
+}
