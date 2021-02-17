@@ -59,7 +59,11 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">Blank</span>
 				</div>
-				<input type="number" class="form-control" id="blank" value="0">
+				<select class="custom-select" id="blank">
+					<option value="-1">Slice</option>
+					<option value="0" selected>Full</option>
+					<option value="1">Spaces</option>
+				</select>
 			</div>
 		</form>
 		<canvas id="maze-texture"></canvas>
