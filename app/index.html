@@ -25,8 +25,10 @@
 					<span class="input-group-text">Columns</span>
 				</div>
 				<input type="number" class="form-control" id="maze-columns" min="1" value="50">
+			</div>
+			<div class="input-group">	
 				<div class="input-group-prepend">
-					<span class="input-group-text">Wall</span>
+					<span class="input-group-text">Wall (transparent)</span>
 				</div>
 				<input type="number" class="form-control" id="maze-wall" min="1" value="2">
 				<div class="input-group-append">
@@ -36,26 +38,16 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">Path</span>
 				</div>
-				<input type="color" class="form-control" id="maze-path-color" value="#ffffff">
 				<input type="number" class="form-control" id="maze-path" min="1" value="10">
 				<div class="input-group-append">
 					<span class="input-group-text">px</span>
 				</div>
+				<div class="input-group-prepend">
+					<span class="input-group-text">Color</span>
+				</div>
+				<input type="color" class="form-control" id="maze-path-color" value="#ffffff">
 			</div>
 			<div class="input-group">
-				<div class="input-group-prepend">
-					<label class="input-group-text" for="line-cap">Line Cap</label>
-				</div>
-				<select class="custom-select" id="line-cap">
-					<option value="butt">Butt</option>
-					<option value="round">Round</option>
-					<option value="square" selected>Square</option>
-				</select>
-				<div class="input-group-prepend">
-					<span class="input-group-text">Displacement</span>
-				</div>
-				<input type="number" class="form-control" id="displacement" value="1.5">
-
 				<div class="input-group-prepend">
 					<span class="input-group-text">Blank</span>
 				</div>
@@ -64,6 +56,20 @@
 					<option value="0" selected>Full</option>
 					<option value="1">Spaces</option>
 				</select>
+
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="line-cap">Line Cap</label>
+				</div>
+				<select class="custom-select" id="line-cap">
+					<option value="butt">Butt</option>
+					<option value="round">Round</option>
+					<option value="square" selected>Square</option>
+				</select>
+
+				<div class="input-group-prepend">
+					<span class="input-group-text">Displacement</span>
+				</div>
+				<input type="number" class="form-control" id="displacement" min="0.1" step="0.1" value="1.5">
 			</div>
 		</form>
 		<canvas id="maze-texture"></canvas>

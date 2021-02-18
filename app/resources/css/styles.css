@@ -9,3 +9,7 @@ canvas {
 #maze-path-color {
     height: auto;
 }
+
+select {
+    margin-right: 2px;
+}
