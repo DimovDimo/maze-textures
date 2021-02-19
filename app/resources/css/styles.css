@@ -12,4 +12,13 @@ canvas {
 
 select {
     margin-right: 2px;
+    width: 99px;
+}
+
+.input-group {
+    width: 240px;
+}
+
+.input-group-prepend {
+    width: 140px;
 }
