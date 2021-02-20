@@ -5,8 +5,8 @@
 	<title>Maze textures</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="resources/css/reset-css.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="resources/css/styles.css">
 </head>
 
@@ -15,67 +15,89 @@
 		<h1>Maze textures</h1>
 		<form>
 			<button id="new-texture" type="button" class="btn btn-primary btn-lg">New texture</button>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Rows</span>
+			<div class="accordion"  id="settings-accordion">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="settings-header">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+							data-bs-target="#settings-body" aria-expanded="false" aria-controls="settings-body">
+							Settings
+						</button>
+					</h2>
+					<div id="settings-body" class="accordion-collapse collapse" aria-labelledby="settings-header"
+						data-bs-parent="#settings-accordion">
+						<div class="accordion-body">
+							<!-- <div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Square's side (rows & columns)</span>
+								</div>
+								<input type="number" class="form-control" id="maze-side" min="1" value="50">
+							</div> -->
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Rows</span>
+								</div>
+								<input type="number" class="form-control" id="maze-rows" min="1" value="50">
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Columns</span>
+								</div>
+								<input type="number" class="form-control" id="maze-columns" min="1" value="50">
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Transparent wall</span>
+								</div>
+								<input type="number" class="form-control" id="maze-wall" min="1" value="2">
+								<div class="input-group-append">
+									<span class="input-group-text">px</span>
+								</div>
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Path</span>
+								</div>
+								<input type="number" class="form-control" id="maze-path" min="1" value="10">
+								<div class="input-group-append">
+									<span class="input-group-text">px</span>
+								</div>
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Color</span>
+								</div>
+								<input type="color" class="form-control" id="maze-path-color" value="#ffffff">
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Blank</span>
+								</div>
+								<select class="custom-select" id="blank">
+									<option value="-1">Slice</option>
+									<option value="0" selected>Full</option>
+									<option value="1">Spaces</option>
+								</select>
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="line-cap">Line Cap</label>
+								</div>
+								<select class="custom-select" id="line-cap">
+									<option value="butt">Butt</option>
+									<option value="round">Round</option>
+									<option value="square" selected>Square</option>
+								</select>
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Displacement</span>
+								</div>
+								<input type="number" class="form-control" id="displacement" min="0.1" step="0.1"
+									value="1.5">
+							</div>
+						</div>
+					</div>
 				</div>
-				<input type="number" class="form-control" id="maze-rows" min="1" value="50">
-			</div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Columns</span>
-				</div>
-				<input type="number" class="form-control" id="maze-columns" min="1" value="50">
-			</div>
-			<div class="input-group">	
-				<div class="input-group-prepend">
-					<span class="input-group-text">Transparent wall</span>
-				</div>
-				<input type="number" class="form-control" id="maze-wall" min="1" value="2">
-				<div class="input-group-append">
-					<span class="input-group-text">px</span>
-				</div>
-			</div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Path</span>
-				</div>
-				<input type="number" class="form-control" id="maze-path" min="1" value="10">
-				<div class="input-group-append">
-					<span class="input-group-text">px</span>
-				</div>
-			</div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Color</span>
-				</div>
-				<input type="color" class="form-control" id="maze-path-color" value="#ffffff">
-			</div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Blank</span>
-				</div>
-				<select class="custom-select" id="blank">
-					<option value="-1">Slice</option>
-					<option value="0" selected>Full</option>
-					<option value="1">Spaces</option>
-				</select>
-			</div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<label class="input-group-text" for="line-cap">Line Cap</label>
-				</div>
-				<select class="custom-select" id="line-cap">
-					<option value="butt">Butt</option>
-					<option value="round">Round</option>
-					<option value="square" selected>Square</option>
-				</select>
-			</div>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Displacement</span>
-				</div>
-				<input type="number" class="form-control" id="displacement" min="0.1" step="0.1" value="1.5">
 			</div>
 		</form>
 		<canvas id="maze-texture"></canvas>
@@ -85,8 +107,8 @@
 		<small>© CopyRight Dimo Dimov. MIT License.</small>
 	</footer>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
 	<script src="resources/js/maze-textures.js"></script>
 </body>
