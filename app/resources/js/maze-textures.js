@@ -33,8 +33,9 @@ function getConditions(wall, path, rows, columns) {
 }
 
 function getSettings() {
-	let rows = getInputNumber("maze-rows");
-	let columns = getInputNumber("maze-columns");
+	let side = getInputNumber("maze-side");
+	let rows = side;
+	let columns = side;
 	let wall = getInputNumber("maze-wall");
 	let path = getInputNumber("maze-path");
 
