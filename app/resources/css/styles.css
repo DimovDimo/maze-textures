@@ -1,19 +1,24 @@
 body {
-    background: rgb(226, 226, 226);
+    background: black;
+    color: white;
     text-align: center;
 }
 
 h1 {
-    padding: 10px;
+    padding: 6px;
 }
 
 #new-texture {
     margin-bottom: 20px;
 }
 
-canvas {
-    background: rgb(0, 0, 0);
-    margin-top: 20px;
+#settings-accordion {
+    background: gainsboro;
+    border-radius: 5px;
+}
+
+hr {
+    margin: 4px 0 4px 0;
 }
 
 #maze-path-color {
@@ -42,6 +47,10 @@ select {
     width: 140px;
 }
 
+canvas {
+    margin-top: 20px;
+}
+
 footer {
-    margin: 10px;
+    margin-bottom: 10px;
 }
