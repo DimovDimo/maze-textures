@@ -13,7 +13,12 @@ function engine() {
 
 	setSize(canvas, columns, dimension, displacement, rows);
 	setStyle(texture, path);
-	generateMaze(stance, columns, rows, limit, texture, displacement, dimension);
+	generateMaze(stance, columns, rows, limit, texture, displacement, dimension);	
+	setValue("maze-width", canvas.width);
+}
+
+function setValue(id, value) {
+	document.getElementById(id).value = value;
 }
 
 function getCanvas() {
