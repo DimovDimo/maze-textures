@@ -27,12 +27,12 @@ hr {
 
 select {
     margin-right: 2px;
-    width: 99px;
+    width: 139px;
 }
 
 .accordion {
     margin: auto;
-    width: 260px;
+    width: 300px;
 }
 
 .accordion-body {
@@ -40,11 +40,15 @@ select {
 }
 
 .input-group {
-    width: 240px;
+    width: 280px;
 }
 
 .input-group-prepend {
     width: 140px;
+}
+
+.input-group-append {
+    width: 60px;
 }
 
 canvas {
