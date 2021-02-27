@@ -47,8 +47,16 @@ select {
     width: 140px;
 }
 
+#file-name-title {
+    width: auto;
+}
+
 .input-group-append {
     width: 60px;
+}
+
+#download-group {
+    margin: auto;
 }
 
 canvas {
