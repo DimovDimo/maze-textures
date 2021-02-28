@@ -57,6 +57,20 @@ select {
 
 #download-group {
     margin: auto;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+input {
+    border-radius: 5px;
+}
+
+#file-name {
+    border-radius: 5px;
+}
+
+#button-download {
+    width: auto;
 }
 
 canvas {
