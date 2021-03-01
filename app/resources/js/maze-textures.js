@@ -7,10 +7,11 @@ newTexture.addEventListener("click", engine);
 engine();
 
 function engine() {
-	let { canvas, texture } = getCanvas();
 	let { wall, path, rows, columns } = getSettings();
 	let { dimension, displacement, stance, limit } = getConditions(wall, path, rows, columns);
-
+	let canvas = document.getElementById("maze-texture");
+	let texture = canvas.getContext("2d");
+	
 	setSize(canvas, columns, dimension, displacement, rows);
 	setStyle(texture, path);
 	generateMaze(stance, columns, rows, limit, texture, displacement, dimension);	

@@ -61,12 +61,12 @@ select {
     padding-bottom: 10px;
 }
 
-input {
+input, select {
     border-radius: 5px;
 }
 
 #file-name {
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 #button-download {
