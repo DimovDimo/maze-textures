@@ -5,11 +5,12 @@ body {
 }
 
 h1 {
+    font-size: 50px;
     padding: 6px;
 }
 
 #new-texture {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #settings-accordion {
@@ -74,7 +75,7 @@ input, select {
 }
 
 canvas {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 footer {
